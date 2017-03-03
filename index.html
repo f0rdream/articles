@@ -393,12 +393,7 @@ Anyway， 现在还是大二，时间不算多，但也足够改变很多。希�
       });
     });
 </script>
-<script>
-    if($('focus-part').length > 0) {
-        $('html, body').animate({scrollTop: $('#focus-part').offset().top}, 1000);
-    }
-</script>
-<script src="//static.fordream001.cn/instantclick.min.js" data-no-instant></script>
+<script src="//static.fordream001.cn/js/instantclick.min.js" data-no-instant></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -411,7 +406,9 @@ Anyway， 现在还是大二，时间不算多，但也足够改变很多。希�
     });
 
   InstantClick.init();
-
+  if($('focus-part').length > 0) {
+      $('html, body').animate({scrollTop: $('#focus-part').offset().top}, 1000);
+  }
 </script>
 
 
