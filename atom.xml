@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fordream001&#39;s Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://fordream001.cn/"/>
+  <updated>2017-03-03T12:00:10.487Z</updated>
+  <id>http://fordream001.cn/</id>
+  
+  <author>
+    <name>Fordream001</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>武大教务</title>
+    <link href="http://fordream001.cn/2017/03/03/school/"/>
+    <id>http://fordream001.cn/2017/03/03/school/</id>
+    <published>2017-03-03T11:56:29.000Z</published>
+    <updated>2017-03-03T12:00:10.487Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;武汉大学教务系统地址&quot;&gt;&lt;a href=&quot;#武汉大学教务系统地址&quot; class=&quot;headerlink&quot; title=&quot;武汉大学教务系统地址&quot;&gt;&lt;/a&gt;武汉大学教务系统地址&lt;/h3&gt;&lt;p&gt;210.42.121.132&lt;br&gt;210.42.121.133&lt;br&gt;21
+    
+    </summary>
+    
+      <category term="Misc" scheme="http://fordream001.cn/categories/Misc/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Blog-Build</title>
+    <link href="http://fordream001.cn/2017/03/03/blog-build/"/>
+    <id>http://fordream001.cn/2017/03/03/blog-build/</id>
+    <published>2017-03-03T08:28:01.000Z</published>
+    <updated>2017-03-03T11:52:19.302Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0X00&quot;&gt;&lt;a href=&quot;#0X00&quot; class=&quot;headerlink&quot; title=&quot;0X00&quot;&gt;&lt;/a&gt;0X00&lt;/h2&gt;&lt;p&gt;虽然只是一个&lt;code&gt;Hexo&lt;/code&gt;生成的静态站，使用的主题是&lt;code&gt;TKL&lt;/code&gt;，不过整个搭下来还是
+    
+    </summary>
+    
+      <category term="FrontEnd" scheme="http://fordream001.cn/categories/FrontEnd/"/>
+    
+    
+      <category term="Tech" scheme="http://fordream001.cn/tags/Tech/"/>
+    
+      <category term="JavaScript" scheme="http://fordream001.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Just the Beginning</title>
+    <link href="http://fordream001.cn/2017/03/03/beginning/"/>
+    <id>http://fordream001.cn/2017/03/03/beginning/</id>
+    <published>2017-03-03T08:04:49.000Z</published>
+    <updated>2017-03-03T10:54:42.913Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0X00&quot;&gt;&lt;a href=&quot;#0X00&quot; class=&quot;headerlink&quot; title=&quot;0X00&quot;&gt;&lt;/a&gt;0X00&lt;/h2&gt;&lt;p&gt;几天折腾下来，这个&lt;code&gt;Hexo&lt;/code&gt;生成的静态站总算是搭起来了。自此之后，也算是有了一个记录自己的地方。&lt;/
+    
+    </summary>
+    
+      <category term="life" scheme="http://fordream001.cn/categories/life/"/>
+    
+    
+      <category term="life" scheme="http://fordream001.cn/tags/life/"/>
+    
+  </entry>
+  
+</feed>
