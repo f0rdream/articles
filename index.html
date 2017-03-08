@@ -369,6 +369,23 @@ Anyway， 现在还是大二，时间不算多，但也足够改变很多。希�
 <script src="//static.fordream001.cn/js/scripts.js"></script><!-- Theme scripts -->
 
 
+<link rel="stylesheet" href="//static.fordream001.cn/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="//static.fordream001.cn/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
 <!-- Initiate flexslider plugin -->
 <script type="text/javascript">
     $(document).ready(function($) {
@@ -400,7 +417,7 @@ Anyway， 现在还是大二，时间不算多，但也足够改变很多。希�
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-92997845-1', 'auto');
   ga('send', 'pageview', location.pathname + location.search);
-  if($('focus-part').length > 0) {
+  if($('#focus-part').length > 0) {
       $('html, body').animate({scrollTop: $('#focus-part').offset().top}, 1000);
   }
 </script>
