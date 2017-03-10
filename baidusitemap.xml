@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://fordream001.cn/beginning/</loc>
+    <lastmod>2017-03-03T13:06:05.515Z</lastmod>
+    <data>
+        <display>
+        <title>Just the Beginning</title>
+        <pubTime>2017-03-03T08:04:49.000Z</pubTime>
+        
+        <tag>life</tag>
+         
+         
+           
+             
+              <breadCrumb title="life" url="http://fordream001.cn/categories/life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fordream001.cn/school/</loc>
+    <lastmod>2017-03-03T12:00:10.487Z</lastmod>
+    <data>
+        <display>
+        <title>武大教务</title>
+        <pubTime>2017-03-03T11:56:29.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Misc" url="http://fordream001.cn/categories/Misc/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fordream001.cn/blog-build/</loc>
+    <lastmod>2017-03-03T11:52:19.302Z</lastmod>
+    <data>
+        <display>
+        <title>Blog-Build</title>
+        <pubTime>2017-03-03T08:28:01.000Z</pubTime>
+        
+        <tag>Tech</tag>
+         
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="FrontEnd" url="http://fordream001.cn/categories/FrontEnd/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>
