@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://fordream001.cn/"/>
+  <link href="https://www.fordream001.cn/"/>
   <updated>2017-03-03T12:00:10.487Z</updated>
-  <id>http://fordream001.cn/</id>
+  <id>https://www.fordream001.cn/</id>
   
   <author>
     <name>Fordream001</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>武大教务</title>
-    <link href="http://fordream001.cn/school/"/>
-    <id>http://fordream001.cn/school/</id>
+    <link href="https://www.fordream001.cn/school/"/>
+    <id>https://www.fordream001.cn/school/</id>
     <published>2017-03-03T11:56:29.000Z</published>
     <updated>2017-03-03T12:00:10.487Z</updated>
     
@@ -28,15 +28,15 @@
     
     </summary>
     
-      <category term="Misc" scheme="http://fordream001.cn/categories/Misc/"/>
+      <category term="Misc" scheme="https://www.fordream001.cn/categories/Misc/"/>
     
     
   </entry>
   
   <entry>
     <title>Blog-Build</title>
-    <link href="http://fordream001.cn/blog-build/"/>
-    <id>http://fordream001.cn/blog-build/</id>
+    <link href="https://www.fordream001.cn/blog-build/"/>
+    <id>https://www.fordream001.cn/blog-build/</id>
     <published>2017-03-03T08:28:01.000Z</published>
     <updated>2017-03-03T11:52:19.302Z</updated>
     
@@ -46,19 +46,19 @@
     
     </summary>
     
-      <category term="FrontEnd" scheme="http://fordream001.cn/categories/FrontEnd/"/>
+      <category term="FrontEnd" scheme="https://www.fordream001.cn/categories/FrontEnd/"/>
     
     
-      <category term="Tech" scheme="http://fordream001.cn/tags/Tech/"/>
+      <category term="Tech" scheme="https://www.fordream001.cn/tags/Tech/"/>
     
-      <category term="JavaScript" scheme="http://fordream001.cn/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://www.fordream001.cn/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>Just the Beginning</title>
-    <link href="http://fordream001.cn/beginning/"/>
-    <id>http://fordream001.cn/beginning/</id>
+    <link href="https://www.fordream001.cn/beginning/"/>
+    <id>https://www.fordream001.cn/beginning/</id>
     <published>2017-03-03T08:04:49.000Z</published>
     <updated>2017-03-03T13:06:05.515Z</updated>
     
@@ -68,10 +68,10 @@
     
     </summary>
     
-      <category term="life" scheme="http://fordream001.cn/categories/life/"/>
+      <category term="life" scheme="https://www.fordream001.cn/categories/life/"/>
     
     
-      <category term="life" scheme="http://fordream001.cn/tags/life/"/>
+      <category term="life" scheme="https://www.fordream001.cn/tags/life/"/>
     
   </entry>
   
