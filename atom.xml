@@ -22,6 +22,11 @@
     <published>2017-03-03T11:56:29.000Z</published>
     <updated>2017-03-03T12:00:10.487Z</updated>
     
+    <content type="html"><![CDATA[<h3 id="武汉大学教务系统地址"><a href="#武汉大学教务系统地址" class="headerlink" title="武汉大学教务系统地址"></a>武汉大学教务系统地址</h3><p>210.42.121.132<br>210.42.121.133<br>210.42.121.134<br>210.42.121.241</p>
+<p>学校教务系统没有域名，于是之前百度搜出来的结果都是豆瓣的某个帖子….</p>
+<p>所以干脆自己写下来，说不定哪天就被百度收了呢，假装在做SEO吧 (逃</p>
+]]></content>
+    
     <summary type="html">
     
       &lt;h3 id=&quot;武汉大学教务系统地址&quot;&gt;&lt;a href=&quot;#武汉大学教务系统地址&quot; class=&quot;headerlink&quot; title=&quot;武汉大学教务系统地址&quot;&gt;&lt;/a&gt;武汉大学教务系统地址&lt;/h3&gt;&lt;p&gt;210.42.121.132&lt;br&gt;210.42.121.133&lt;br&gt;21
@@ -39,6 +44,27 @@
     <id>https://www.fordream001.cn/blog-build/</id>
     <published>2017-03-03T08:28:01.000Z</published>
     <updated>2017-03-03T11:52:19.302Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0X00"><a href="#0X00" class="headerlink" title="0X00"></a>0X00</h2><p>虽然只是一个<code>Hexo</code>生成的静态站，使用的主题是<code>TKL</code>，不过整个搭下来还是做了不少微小的工作的 :-D ，记录一下</p>
+<h2 id="0X01-静态文件上传COS以及CDN加速"><a href="#0X01-静态文件上传COS以及CDN加速" class="headerlink" title="0X01  静态文件上传COS以及CDN加速"></a>0X01  静态文件上传COS以及CDN加速</h2><p>手上只有一台腾讯云的1核1G 1M带宽的小水管服务器，加载速度很不理想，首页加载时间将近4s，所以还是有必要做一下速度优化的，用到了腾讯云的对象存储<code>COS</code>, 以及<code>CDN</code></p>
+<p>其中用到了静态文件压缩<code>hexo-all-minifier</code> ，批量更改文件链接 <code>hexo-cdnify</code> ，直接在<code>Hexo</code>配置文件<code>_config.yml</code>中增加下边部分</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">cdn:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  base:</span> <span class="string">'需要替换的CDN网址'</span></div><div class="line"><span class="attr">  tags:</span></div><div class="line">    <span class="string">'img[data-orign]'</span>:  data-orign</div></pre></td></tr></table></figure>
+<p>同时由于<code>hexo-all-minifier</code>压缩的<code>html</code>文件略有问题，于是我又把它的组件<code>html_minifier</code>关闭</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">html_minifier:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">false</span></div><div class="line"><span class="attr">  exclude:</span></div></pre></td></tr></table></figure>
+<p>同时需要将<code>public</code>文件夹中的静态文件上传到<code>COS</code>中，需要用到包<code>qcloud_cos</code> ，同时考虑到<code>CDN</code>可能回源，用到了包<code>scp2</code>，把本机的<code>public</code>目录上传到了服务器上。写好基本脚本之后，在<code>pack.json</code>里边配置写好的脚本，用<code>npm run xx</code>指令可以同时执行发布，替换，上传操作。</p>
+<h2 id="0X02-开启标签及分类系统"><a href="#0X02-开启标签及分类系统" class="headerlink" title="0X02 开启标签及分类系统"></a>0X02 开启标签及分类系统</h2><p>开启<code>categories</code>及<code>tag</code>系统，在<code>Hexo</code>的配置文件<code>_config.yml</code>中，确保以下字段</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">category_dir:</span> categories</div><div class="line"><span class="attr">tag_dir:</span> tags</div></pre></td></tr></table></figure>
+<p>同时部分主题还需要配置主题的<code>_config.yml</code>中的<code>menu</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">menu:</span> </div><div class="line">	categories: /categories</div></pre></td></tr></table></figure>
+<p>这之后，每次发文章只需要在文章<code>md</code>文件的前边加上<code>tag</code>和<code>categories</code>就可以，比如这篇文章的就是下边这样</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> Blog-Build</div><div class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-03</span><span class="bullet">-03</span> <span class="number">16</span>:<span class="number">28</span>:<span class="number">01</span></div><div class="line"><span class="attr">tags:</span></div><div class="line"><span class="bullet">    -</span> Tech</div><div class="line"><span class="bullet">    -</span> JavaScript</div><div class="line"><span class="attr">categories:</span> FrontEnd</div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
+<h2 id="0X03-修改代码高亮及页面初始位置"><a href="#0X03-修改代码高亮及页面初始位置" class="headerlink" title="0X03 修改代码高亮及页面初始位置"></a>0X03 修改代码高亮及页面初始位置</h2><p>主题自带了代码高亮系统，不过<code>_config.yml</code>里边的配置只能修改字体高亮风格，代码部分的背景需要手动修改</p>
+<p>查看主题文件夹发现代码高亮部分在<code>/themes/TKL/source/syntax.styl</code> ，找到<code>figure.highlight</code>部分，按照自己想要的效果修改<code>CSS</code>就可以了</p>
+<p>另外，这个主题还有问题在于，所有页面进入时，看到的都是<code>banner</code>部分，于是在页面底部的<code>&lt;script&gt;</code>内加上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'html body'</span>).animate(&#123;<span class="attr">scroolTop</span>: $(<span class="string">'#focus-part'</span>).offset().top&#125;, <span class="number">1000</span>)</div></pre></td></tr></table></figure>
+<p> 这样加载页面时，会自动滚动到对应的部分，其中的<code>#focus-part</code>就是滚动的部分</p>
+<p>以上</p>
+]]></content>
     
     <summary type="html">
     
@@ -61,6 +87,16 @@
     <id>https://www.fordream001.cn/beginning/</id>
     <published>2017-03-03T08:04:49.000Z</published>
     <updated>2017-03-03T13:06:05.515Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0X00"><a href="#0X00" class="headerlink" title="0X00"></a>0X00</h2><p>几天折腾下来，这个<code>Hexo</code>生成的静态站总算是搭起来了。自此之后，也算是有了一个记录自己的地方。</p>
+<p>很久之前就想着搭建一个来着，然而终究是懒癌发作，不了了之，这一次刚开学正好时间还比较足，也算是新学期送给自己的礼物。</p>
+<p>回顾过去的一年，感觉学到了很多，但同时也常常感觉过去的一年浑浑噩噩很快就过去了，时间没有记录起来，也没有什么积淀。和学校里其他大佬相比，学到的还是很少。</p>
+<p>Anyway， 现在还是大二，时间不算多，但也足够改变很多。希望这个博客能够成为一个开始，让自己形成记录的习惯，不至于当自己回头看的时候发现什么都不剩。</p>
+<h2 id="0X01"><a href="#0X01" class="headerlink" title="0X01"></a>0X01</h2><p>在这里立下Flag吧，之后的每个月至少保证两篇更新</p>
+<p>新的一个学期，多接触一些基础知识(编译原理，操作系统)，同时也搞一下后端吧</p>
+<p>同时，也希望自己能够看完这两本书: <code>JavaScript Ninja</code> 以及阮一峰大大的 <code>ES2015 规范</code></p>
+<p>以上</p>
+]]></content>
     
     <summary type="html">
     
