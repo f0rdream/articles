@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.fordream001.cn/"/>
-  <updated>2017-03-03T12:00:10.487Z</updated>
+  <updated>2017-04-27T16:20:01.657Z</updated>
   <id>https://www.fordream001.cn/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Http/2,HTTPS及其他</title>
+    <link href="https://www.fordream001.cn/http2/"/>
+    <id>https://www.fordream001.cn/http2/</id>
+    <published>2017-04-27T09:08:32.000Z</published>
+    <updated>2017-04-27T16:20:01.657Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0X00"><a href="#0X00" class="headerlink" title="0X00"></a>0X00</h2><p>心血来潮给博客启用<code>HTTPS</code>, 同时启用<code>HTTP/2</code>,试试效果如何</p>
+<h2 id="0X01-申请证书"><a href="#0X01-申请证书" class="headerlink" title="0X01 申请证书"></a>0X01 申请证书</h2><p>证书选择了腾讯云提供的免费的单域名证书,一年时长,来自于<strong>TrustAsia</strong>, 比之前的赛门铁克的要好一些(Chrome已经开始逐步降低赛门铁克的证书的有效期了)</p>
+<p>因为来自于腾讯与,与服务器高度绑定所以过程也比较简单,填写域名,邮箱之后就进入身份验证环节,可以选择自动DNS验证</p>
+<h2 id="0X02-配置NGINX"><a href="#0X02-配置NGINX" class="headerlink" title="0X02 配置NGINX"></a>0X02 配置NGINX</h2><p>首先NGINX只有在1.9.0版本之后才原生支持HTTP/2,解决方法也比较简单,把ubuntu升级到16.04或者手动编译安装新版本</p>
+<h4 id="转发HTTP请求到HTTPS"><a href="#转发HTTP请求到HTTPS" class="headerlink" title="转发HTTP请求到HTTPS"></a>转发HTTP请求到HTTPS</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</div><div class="line">	<span class="attribute">listen</span> [::]:<span class="number">80</span>;</div><div class="line">	<span class="attribute">server_name</span> www.fordream001.cn;</div><div class="line">	<span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$server_name</span><span class="variable">$request_uri</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="配置HTTP-2"><a href="#配置HTTP-2" class="headerlink" title="配置HTTP/2"></a>配置HTTP/2</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl http2 default_server;    <span class="comment">#添加HTTP/2的支持</span></div><div class="line">	<span class="attribute">listen</span> [::]:<span class="number">443</span> ssl http2 default_server; <span class="comment">#添加HTTP/2的支持</span></div><div class="line">	<span class="attribute">server_name</span> www.fordream001.cn;</div><div class="line">	<span class="attribute">root</span> <span class="string">'Your root path'</span>;</div><div class="line">     <span class="attribute">index</span> index.html index.htm;</div><div class="line">	<span class="attribute">location</span> / &#123;</div><div class="line">         <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="添加HTTPS的支持"><a href="#添加HTTPS的支持" class="headerlink" title="添加HTTPS的支持"></a>添加HTTPS的支持</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl http2 default_server;    <span class="comment">#添加HTTP/2的支持</span></div><div class="line">	<span class="attribute">listen</span> [::]:<span class="number">443</span> ssl http2 default_server; <span class="comment">#添加HTTP/2的支持</span></div><div class="line">	<span class="attribute">server_name</span> www.fordream001.cn;</div><div class="line">	<span class="attribute">root</span> <span class="string">'Your root path'</span>;</div><div class="line">     <span class="attribute">index</span> index.html index.htm;</div><div class="line">	<span class="attribute">location</span> / &#123;</div><div class="line">         <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</div><div class="line">     &#125;</div><div class="line">     <span class="attribute">ssl</span> <span class="literal">on</span>;</div><div class="line">	<span class="attribute">ssl_certificate</span> YOURPATH/1_www.fordream001.cn_bundle.crt;</div><div class="line">	<span class="attribute">ssl_certificate_key</span> YOURPATH/2_www.fordream001.cn.key;</div><div class="line"></div><div class="line">	<span class="attribute">ssl_session_timeout</span> <span class="number">5m</span>;</div><div class="line"></div><div class="line">	<span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</div><div class="line"></div><div class="line">	<span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;</div><div class="line">	<span class="attribute">ssl_ciphers</span> EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面逐个解释一下</p>
+<p><code>ssl_certificate</code>后边跟<code>.crt</code>文件路径,表示证书文件(公钥)</p>
+<p><code>ssl_certificate_key</code>后边跟<code>.key</code>文件表示密钥文件(私钥)</p>
+<p><code>ssl_protocols</code>表示加密协议,这里为了安全原因没有使用<code>SSLv3</code>,而全部使用<code>TLS</code></p>
+<p><code>ssl_ciphers</code> 加密套件</p>
+<p><code>ssl_prefer_server_ciphers</code>倾向于使用服务端的加密套件</p>
+<h4 id="0X03-总结"><a href="#0X03-总结" class="headerlink" title="0X03 总结"></a>0X03 总结</h4><p>启用HTTP/2之后的确是有性能提升不过似乎没有那么明显(已经使用CDN),不过折腾的过程中还是对<code>NGINX</code>的配置了解更多了,同时也学习了下<code>HTTPS</code>的加密原理(以后有时间也写一篇文章)</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-16-04" target="_blank" rel="external">How To Set Up Nginx with HTTP/2 Support on Ubuntu 16.04</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0X00&quot;&gt;&lt;a href=&quot;#0X00&quot; class=&quot;headerlink&quot; title=&quot;0X00&quot;&gt;&lt;/a&gt;0X00&lt;/h2&gt;&lt;p&gt;心血来潮给博客启用&lt;code&gt;HTTPS&lt;/code&gt;, 同时启用&lt;code&gt;HTTP/2&lt;/code&gt;,试试效果如何&lt;/p
+    
+    </summary>
+    
+      <category term="BackEnd" scheme="https://www.fordream001.cn/categories/BackEnd/"/>
+    
+    
+      <category term="nginx" scheme="https://www.fordream001.cn/tags/nginx/"/>
+    
+      <category term="linux" scheme="https://www.fordream001.cn/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>武大教务</title>

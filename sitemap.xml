@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+  
   <url>
-    <loc>http://fordream001.cn/beginning/</loc>
-
+    <loc>https://www.fordream001.cn/http2/</loc>
+    
+    <lastmod>2017-04-27T16:20:01.657Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.fordream001.cn/beginning/</loc>
+    
     <lastmod>2017-03-03T13:06:05.515Z</lastmod>
-
+    
   </url>
-
+  
   <url>
-    <loc>http://fordream001.cn/school/</loc>
-
+    <loc>https://www.fordream001.cn/school/</loc>
+    
     <lastmod>2017-03-03T12:00:10.487Z</lastmod>
-
+    
   </url>
-
+  
   <url>
-    <loc>http://fordream001.cn/blog-build/</loc>
-
+    <loc>https://www.fordream001.cn/blog-build/</loc>
+    
     <lastmod>2017-03-03T11:52:19.302Z</lastmod>
-
+    
   </url>
-
+  
   <url>
-    <loc>http://fordream001.cn/about.html</loc>
-
+    <loc>https://www.fordream001.cn/about.html</loc>
+    
     <lastmod>2017-03-03T06:58:37.502Z</lastmod>
-
+    
   </url>
-
+  
   <url>
-    <loc>http://fordream001.cn/tags/index.html</loc>
-
+    <loc>https://www.fordream001.cn/tags/index.html</loc>
+    
     <lastmod>2017-03-02T04:26:01.857Z</lastmod>
-
+    
   </url>
-
+  
   <url>
-    <loc>http://fordream001.cn/categories/index.html</loc>
-
+    <loc>https://www.fordream001.cn/categories/index.html</loc>
+    
     <lastmod>2017-03-02T04:25:44.324Z</lastmod>
-
+    
   </url>
-
+  
 </urlset>
